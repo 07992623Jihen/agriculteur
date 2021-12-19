@@ -6,9 +6,17 @@ import Landing from "../screens/landing";
 import ListePlante from "../screens/liste-plante";
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import IconAntDesign from "react-native-vector-icons/AntDesign";
-import IconFontAwesome from "react-native-vector-icons/FontAwesome";
+import Entypo from "react-native-vector-icons/Entypo";
 import DetailPlante from "../screens/detail-plante";
 import ListeHerbicide from "../screens/list-herbicide";
+import ListReclamation from "../screens/list-reclamation";
+import Reponce from "../screens/reponce";
+import HerbicideReponce from "../screens/reponce-herbicide";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Meteo from "../screens/meteo";
+import ChatScreen from "../screens/chat";
+import AntDesign from "react-native-vector-icons/AntDesign";
+
 
 const LandingNav = createStackNavigator(
   {
@@ -17,7 +25,23 @@ const LandingNav = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#4a148c",
+        backgroundColor: "#006400",
+      },
+      headerTintColor: "white",
+    },
+  }
+);
+
+const ReclamationNav = createStackNavigator(
+  {
+    ListReclamation: ListReclamation,
+    Reponce:Reponce,
+    HerbicideReponce: HerbicideReponce
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#006400",
       },
       headerTintColor: "white",
     },
@@ -33,7 +57,36 @@ const Plante = createStackNavigator(
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#4a148c",
+        backgroundColor: "#006400",
+      },
+      headerTintColor: "white",
+    },
+  }
+);
+
+const MeteoNav = createStackNavigator(
+  {
+    Meteo:Meteo,
+    
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#006400",
+      },
+      headerTintColor: "white",
+    },
+  }
+);
+
+const ChatNav = createStackNavigator(
+  {
+    ChatScreen:ChatScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#006400",
       },
       headerTintColor: "white",
     },
@@ -49,7 +102,7 @@ const AppNav = createMaterialBottomTabNavigator(
         tabBarIcon: (tabInfo) => {
           return <IconAntDesign name="home" size={25} color="#fafafa" />;
         },
-        tabBarColor: "#0086c3",
+        tabBarColor: "#006400",
       },
     },
     Plante: {
@@ -58,7 +111,34 @@ const AppNav = createMaterialBottomTabNavigator(
         tabBarIcon: (tabInfo) => {
           return <IconAntDesign name="profile" size={25} color="#fafafa" />;
         },
-        tabBarColor: "#673ab7",
+        tabBarColor: "#006400",
+      },
+    },
+    Reclamations: {
+      screen: ReclamationNav,
+      navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return <Entypo name="list" size={25} color="#fafafa" />;
+        },
+        tabBarColor: "#006400",
+      },
+    },
+    Meteo: {
+      screen: MeteoNav,
+      navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return <MaterialCommunityIcons name="weather-cloudy-alert" size={25} color="#fafafa" />;
+        },
+        tabBarColor: "#006400",
+      },
+    },
+    Chat: {
+      screen: ChatNav,
+      navigationOptions: {
+        tabBarIcon: (tabInfo) => {
+          return <AntDesign name="message1" size={25} color="#fafafa" />;
+        },
+        tabBarColor: "#006400",
       },
     },
   },

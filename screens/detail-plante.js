@@ -22,7 +22,7 @@ const DetailPlante = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.215:5000/api/mauvaiseHerbe/${id}`
+        `http://192.168.1.17:5000/api/mauvaiseHerbe/${id}`
       );
 
       const responseData = await response.json();
@@ -43,7 +43,7 @@ const DetailPlante = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.215:5000/api/mauvaiseHerbe/${id}`
+        `http://192.168.1.17:5000/api/mauvaiseHerbe/${id}`
       );
 
       const responseData = await response.json();
@@ -66,7 +66,7 @@ const DetailPlante = (props) => {
         <TouchableOpacity>
           <View style={{ ...styles.MealRow, ...styles.mealHeader }}>
             <ImageBackground
-              source={{ uri: `http://192.168.1.215:5000/${list.image}` }}
+              source={{ uri: `http://192.168.1.17:5000/${list.image}` }}
               style={styles.bgImage}
             >
               <Text style={styles.title}>{list.nom}</Text>
@@ -106,7 +106,7 @@ const DetailPlante = (props) => {
 
 DetailPlante.navigationOptions = (navData) => {
   return {
-    headerTitle: "detail plante",
+    headerTitle: "Mauvaise herbe",
   };
 };
 

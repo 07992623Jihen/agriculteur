@@ -7,63 +7,50 @@ import {
   ImageBackground,
   RefreshControl,
   ScrollView,
+  Picker,
 } from "react-native";
-import {
-  Container,
-  Header,
-  Content,
-  List,
-  ListItem,
-  Left,
-  Body,
-  Right,
-  Thumbnail,
-} from "native-base";
+import {Authcontext} from '../context/auth-context'
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
 };
 
-const ListeHerbicide = (props) => {
+const ListReclamation = (props) => {
   const [refreshing, setRefreshing] = useState(false);
 
+  const auth = useContext(Authcontext)
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
-      const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/mauvaiseHerbe/${id}`
-      );
+      const response = await fetch(`http://192.168.1.17:5000/api/demandeTraitement/agriculteur/${auth.userId}`);
 
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.herbicides);
+      setList(responseData.demandes);
     };
     sendRequest();
   }, []);
 
   const [list, setList] = useState([]);
 
-  const id = props.navigation.getParam("id");
-
   useEffect(() => {
     const sendRequest = async () => {
-      const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/mauvaiseHerbe/${id}`
-      );
+      const response = await fetch(`http://192.168.1.17:5000/api/demandeTraitement/agriculteur/${auth.userId}`);
 
       const responseData = await response.json();
       if (!response.ok) {
         throw new Error(responseData.message);
       }
 
-      setList(responseData.herbicides);
+      setList(responseData.demandes);
     };
     sendRequest();
   }, []);
+  const [finished, setFinished] = useState(false);
   return (
     <ScrollView
       refreshControl={
@@ -71,25 +58,41 @@ const ListeHerbicide = (props) => {
       }
     >
       {list &&
-        list.map((row) => (
-          <ListItem avatar>
-            <Body>
-              <Text>{row.nom}</Text>
-              <Text note>Matière: {row.matiere}</Text>
-              <Text note>Stade: {row.stade}</Text>
-            </Body>
-            <Right>
-              <Text note> {row.dose} L/Hectare </Text>
-            </Right>
-          </ListItem>
+        list/* .filter(el => el.finished == finished) */.map((row) => (
+          <View style={styles.mealItem}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate({
+                  routeName: "Reponce",
+                  params: {
+                    id: row._id,
+                  },
+                });
+              }}
+            >
+              <View>
+                <View style={{ ...styles.MealRow, ...styles.mealHeader }}>
+                  <ImageBackground
+                    source={{ uri: `http://192.168.1.17:5000/${row.image}` }}
+                    style={styles.bgImage}
+                  >
+                    <Text style={styles.title}>{props.type}</Text>
+                  </ImageBackground>
+                </View>
+                <View style={{ ...styles.MealRow, ...styles.mealDetail }}>
+                  
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
         ))}
     </ScrollView>
   );
 };
 
-ListeHerbicide.navigationOptions = (navData) => {
+ListReclamation.navigationOptions = (navData) => {
   return {
-    headerTitle: "Herbicide",
+    headerTitle: "Mes reclamations",
   };
 };
 
@@ -128,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListeHerbicide;
+export default ListReclamation;

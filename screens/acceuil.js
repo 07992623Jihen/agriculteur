@@ -39,7 +39,7 @@ const Acceuil = (props) => {
 
 Acceuil.navigationOptions = (navData) => {
   return {
-    headerTitle: "INGC",
+    headerTitle: "Acceuil",
   };
 };
 

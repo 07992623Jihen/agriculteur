@@ -75,7 +75,7 @@ const Landing = (props) => {
   const auth = useContext(Authcontext);
 
   const postDocument = async () => {
-    const url = "http://192.168.1.215:5000/api/demandeTraitement/ajout";
+    const url = "http://192.168.1.17:5000/api/demandeTraitement/ajout";
     const fileUri = image.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
@@ -105,7 +105,7 @@ const Landing = (props) => {
     }
 
 
-    Alert.alert("Message", "Votre demande est enregistré", [
+    Alert.alert("Message", "Votre demande est envoyer", [
       { text: "fermer" },
     ]);
   };
@@ -113,7 +113,7 @@ const Landing = (props) => {
     <View>
       <ScrollView>
         <View style={styles.imagePicker}>
-          <H2>Envoyer une demande de traitement</H2>
+          
 
           <View style={styles.imagePreview}>
             {!image ? (
@@ -140,7 +140,7 @@ const Landing = (props) => {
           </View>
 
           <Text>Choisir une image</Text>
-          <Text style={{marginTop:20}}>Choisir le type de l'image image</Text>
+          <Text style={{marginTop:20}}>Choisir le type de l'image </Text>
           <View style={{ flexDirection: "row" }}>
             <RadioButton
               color="#2196f3"
@@ -170,21 +170,28 @@ const Landing = (props) => {
             <ListeImageMonocote visible={modalVisibleMonocote} />
           )}
 
+        <View style={{width: "100%"}}>
           <Button
-            style={{ marginTop: 20 }}
-            block
+          
+            style={{ marginTop: 40, width: "70%",marginLeft:"15%" }}
             onPress={() => {
               postDocument();
             }}
           >
-            <Text>Envoyer</Text>
+            <Text style={{marginLeft:"35%",fontSize:25}}>Envoyer</Text>
           </Button>
+          </View>
         </View>
       </ScrollView>
     </View>
   );
 };
 
+Landing.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Demande de Traitement Mauvaise herbe ",
+  };
+};
 const styles = StyleSheet.create({
   imagePicker: {
     alignItems: "center",
@@ -193,7 +200,7 @@ const styles = StyleSheet.create({
   imagePreview: {
     width: "80%",
     height: 200,
-    marginBottom: 10,
+    marginBottom: 30,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#ccc",

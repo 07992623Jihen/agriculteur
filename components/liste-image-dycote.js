@@ -8,6 +8,7 @@ import {
   View,
   ScrollView,
   Image,
+  ImageBackground
 } from "react-native";
 import {
   Container,
@@ -29,7 +30,7 @@ const ListeImageDycote = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.215:5000/api/mauvaiseHerbe/`
+        `http://192.168.1.17:5000/api/mauvaiseHerbe/`
       );
 
       const responseData = await response.json();
@@ -69,7 +70,7 @@ const ListeImageDycote = (props) => {
                         <Image
                           style={styles.image}
                           source={{
-                            uri: "http://192.168.1.215:5000/" + item.image,
+                            uri: "http://192.168.1.17:5000/" + item.image,
                           }}
                         />
                         <Text style={{ marginTop: 20 }}>{item.nom}</Text>
