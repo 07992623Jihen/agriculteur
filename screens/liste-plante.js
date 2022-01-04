@@ -60,7 +60,7 @@ const ListePlante = (props) => {
             <TouchableOpacity
               onPress={() => {
                 props.navigation.navigate({
-                  routeName: "DetailPlante",
+                  routeName: "DetailPlante",//Mauvase herbe//
                   params: {
                     id: row._id,
                   },

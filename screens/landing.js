@@ -13,7 +13,7 @@ import { Authcontext } from "../context/auth-context";
 
 const Landing = (props) => {
   const [image, setImage] = useState();
-  const [checked, setChecked] = useState();
+  const [checked, setChecked] = useState('dycote');
   const [modalVisibleDycote, setModalVisibleDycote] = useState(false);
   const [modalVisibleMonocote, setModalVisibleMonocote] = useState(false);
 

@@ -29,7 +29,7 @@ const ListeImageMonocote = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17/api/mauvaiseHerbe/`
+        `http://192.168.1.17:5000/api/mauvaiseHerbe/`
       );
 
       const responseData = await response.json();

@@ -23,14 +23,14 @@ const Acceuil = (props) => {
       <ListItem>
         <Button
           primary
-          style={{ marginLeft: "35%" }}
+          style={{ marginLeft: "15%" }}
           onPress={() => {
             props.navigation.navigate({
               routeName: "Calcule",
             });
           }}
         >
-          <Text>Calculer</Text>
+          <Text>Calcul du volume libéré  </Text>
         </Button>
       </ListItem>
     </List>

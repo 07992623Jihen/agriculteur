@@ -45,7 +45,7 @@ const CalculeVitesse = (props) => {
       </Button>
       {result && (
         <Text style={{ fontSize: 30, marginLeft: 25, marginTop: 20 }}>
-          La vitesse idéal est: {result.toFixed(2)} m/s
+          La vitesse idéal est: {result.toFixed(2)} km/h
         </Text>
       )}
     </View>

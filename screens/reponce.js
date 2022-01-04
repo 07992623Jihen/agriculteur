@@ -138,12 +138,12 @@ const Reponce = (props) => {
                   <Text style={{ fontSize: 20 }}> Type de Lutte : </Text>
                   <Text>{row.typeLutte}</Text>
                 </View>
-                <Text> {row.herbicide}</Text>
-              </Card>
+                {row.herbicide != 'undefined' && <Text> {row.herbicide}</Text>}
 
-              {row.herbicide ? (
+                {row.herbicide != 'undefined' && (
+                <View style={{width:'70%',marginLeft:'15%'}}>
                 <Button
-                  style={{ marginHorizontal: 20 }}
+                  
                   title="Afficher le traitement"
                   onPress={() => {
                     props.navigation.navigate({
@@ -154,9 +154,11 @@ const Reponce = (props) => {
                     });
                   }}
                 />
-              ) : (
-                <View></View>
+                </View>
               )}
+              </Card>
+
+              
             </View>
           ))}
       </ScrollView>
@@ -165,7 +167,7 @@ const Reponce = (props) => {
 };
 
 Reponce.navigationOptions = {
-  headerTitle: "Reponce",
+  headerTitle: "Réponce",
 };
 
 const styles = StyleSheet.create({

@@ -25,7 +25,7 @@ const CalculeVolume = (props) => {
   return (
     <View style={{ padding: 10 }}>
       <Item floatingLabel>
-        <Label>volume par hectare (l)</Label>
+        <Label>volume de bouillie par hectare (l)</Label>
         <Input
           keyboardType="numeric"
           onChangeText={(text) => {
@@ -34,7 +34,7 @@ const CalculeVolume = (props) => {
         />
       </Item>
       <Item floatingLabel>
-        <Label>vitesse (Km)</Label>
+        <Label>vitesse (Km/h)</Label>
         <Input
           keyboardType="numeric"
           onChangeText={(text) => {
@@ -43,7 +43,7 @@ const CalculeVolume = (props) => {
         />
       </Item>
       <Item floatingLabel>
-        <Label>distance (m)</Label>
+        <Label>largeur du travail(m)</Label>
         <Input
           keyboardType="numeric"
           onChangeText={(text) => {
@@ -57,7 +57,7 @@ const CalculeVolume = (props) => {
 
       {result && (
         <Text style={{ fontSize: 30, marginLeft: 25, marginTop: 20 }}>
-          Le volume idéal est: {result.toFixed(2)} l/m
+          Le volume idéal est: {result.toFixed(2)} l/s
         </Text>
       )}
     </View>

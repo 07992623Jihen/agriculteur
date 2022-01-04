@@ -65,6 +65,7 @@ const Signup = (props) => {
             placeholder="nom"
             placeholderTextColor="dark"
             label="E-mail"
+            
           />
         </View>
 
