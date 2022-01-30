@@ -21,7 +21,7 @@ const ListePlante = (props) => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.1.17:5000/api/mauvaiseHerbe/`);
+      const response = await fetch(`${url}/api/mauvaiseHerbe/`);
 
       const responseData = await response.json();
       if (!response.ok) {
@@ -37,7 +37,7 @@ const ListePlante = (props) => {
 
   useEffect(() => {
     const sendRequest = async () => {
-      const response = await fetch(`http://192.168.1.17:5000/api/mauvaiseHerbe/`);
+      const response = await fetch(`${url}/api/mauvaiseHerbe/`);
 
       const responseData = await response.json();
       if (!response.ok) {
@@ -70,7 +70,7 @@ const ListePlante = (props) => {
               <View>
                 <View style={{ ...styles.MealRow, ...styles.mealHeader }}>
                   <ImageBackground
-                    source={{ uri: `http://192.168.1.17:5000/${row.image}` }}
+                    source={{ uri: `${url}/${row.image}` }}
                     style={styles.bgImage}
                   >
                     <Text style={styles.title}>{props.title}</Text>

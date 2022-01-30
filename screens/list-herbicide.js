@@ -32,7 +32,7 @@ const ListeHerbicide = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/mauvaiseHerbe/${id}`
+        `${url}/api/herbicide/mauvaiseHerbe/${id}`
       );
 
       const responseData = await response.json();
@@ -52,7 +52,7 @@ const ListeHerbicide = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/mauvaiseHerbe/${id}`
+        `${url}/api/herbicide/mauvaiseHerbe/${id}`
       );
 
       const responseData = await response.json();
@@ -74,12 +74,12 @@ const ListeHerbicide = (props) => {
         list.map((row) => (
           <ListItem avatar>
             <Body>
-              <Text>{row.nom}</Text>
-              <Text note>Matière: {row.matiere}</Text>
-              <Text note>Stade: {row.stade}</Text>
+              <Text> Nom : { row.nom}</Text>
+              <Text note>Matière actif : {row.matiere}</Text>
+              <Text note>Stade d'intervention : {row.stade}</Text>
             </Body>
             <Right>
-              <Text note> {row.dose} L/Hectare </Text>
+              <Text note> Dose par Hectare L/H : {row.dose} </Text>
             </Right>
           </ListItem>
         ))}

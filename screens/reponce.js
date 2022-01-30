@@ -25,7 +25,7 @@ const Reponce = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/reponse/demande/${id}`
+        `${url}/api/reponse/demande/${id}`
       );
 
       const responseData = await response.json();
@@ -43,7 +43,7 @@ const Reponce = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/reponse/demande/${id}`
+        `${url}/api/reponse/demande/${id}`
       );
 
       const responseData = await response.json();
@@ -84,7 +84,7 @@ const Reponce = (props) => {
                 <CardItem bordered>
                   <ImageBackground
                     source={{
-                      uri: `http://192.168.1.17:5000/${row.imagePlature}`,
+                      uri: `${url}/${row.imagePlature}`,
                     }}
                     style={styles.bgImage}
                   >
@@ -103,7 +103,7 @@ const Reponce = (props) => {
                 <CardItem bordered>
                   <ImageBackground
                     source={{
-                      uri: `http://192.168.1.17:5000/${row.imageAdulte}`,
+                      uri: `${url}/${row.imageAdulte}`,
                     }}
                     style={styles.bgImage}
                   >
@@ -121,7 +121,7 @@ const Reponce = (props) => {
                 <CardItem bordered>
                   <ImageBackground
                     source={{
-                      uri: `http://192.168.1.17:5000/${row.imageAvance}`,
+                      uri: `${url}/${row.imageAvance}`,
                     }}
                     style={styles.bgImage}
                   >

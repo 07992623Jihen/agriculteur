@@ -26,7 +26,7 @@ const HerbicideReponce = (props) => {
     wait(2000).then(() => setRefreshing(false));
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/${id}`
+        `${url}/api/herbicide/${id}`
       );
 
       const responseData = await response.json();
@@ -44,7 +44,7 @@ const HerbicideReponce = (props) => {
   useEffect(() => {
     const sendRequest = async () => {
       const response = await fetch(
-        `http://192.168.1.17:5000/api/herbicide/${id}`
+        `${url}/api/herbicide/${id}`
       );
 
       const responseData = await response.json();
@@ -71,16 +71,16 @@ const HerbicideReponce = (props) => {
               </CardItem>
               <CardItem bordered>
                 <Body>
-                  <Text>Matière: {list.matiere}</Text>
+                  <Text>Matière actif : {list.matiere}</Text>
                 </Body>
               </CardItem>
               <CardItem footer bordered>
-                <Text>Dose: {list.dose}</Text>
+                <Text>Dose par hectar : {list.dose}</Text>
                 
               </CardItem>
               <CardItem footer bordered>
                 
-                <Text>Stade: {list.stade}</Text>
+                <Text>Stade d'intervention : {list.stade}</Text>
               </CardItem>
             </Card>
           </View>

@@ -75,7 +75,7 @@ const Landing = (props) => {
   const auth = useContext(Authcontext);
 
   const postDocument = async () => {
-    const url = "http://192.168.1.17:5000/api/demandeTraitement/ajout";
+    const url = "http://192.168.175.105:5000/api/demandeTraitement/ajout";
     const fileUri = image.uri;
     const newImageUri = "file:///" + fileUri.split("file:/").join("");
     const formData = new FormData();
